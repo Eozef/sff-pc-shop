@@ -7,8 +7,6 @@ const HomePage = () => (
     <div className='homepage'>
         <h1>SFF PC Case</h1>
         <Directory />
-
-
     </div>
 );
 
