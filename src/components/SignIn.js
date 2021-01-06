@@ -1,5 +1,6 @@
 import React from "react";
-
+import FormInput from "./FormInput";
+import CustomButton from "./CustomButton";
 import "./SignIn.scss";
 
 class SignIn extends React.Component {
@@ -11,23 +12,45 @@ class SignIn extends React.Component {
       password: "",
     };
   }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    this.setState({ email: "", password: "" });
+  };
+
+  handleChange = (event) => {
+    const { value, name } = event.target;
+
+    this.setState({ [name]: value });
+  };
+
   render() {
     return (
       <div className="sign-in">
-        <h2>I have an account</h2>
+        <h2>I already have an account</h2>
         <span>Sign in with your email and password</span>
-        <form>
-          <input name="email" type="email" value={this.state.email} required />
-          <label>Email</label>
-          <input
+
+        <form onSubmit={this.handleSubmit}>
+          <FormInput
             name="email"
-            type="password"
-            value={this.state.password}
+            type="email"
+            placeholder="Enter email"
+            handleChange={this.handleChange}
+            value={this.state.email}
+            label="Email"
             required
           />
-          <label>Email</label>
-
-          <input type="submit" value="submit Form" />
+          <FormInput
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={this.state.password}
+            handleChange={this.handleChange}
+            label="Password"
+            required
+          />
+          <CustomButton type="submit"> Sign in </CustomButton>
         </form>
       </div>
     );
