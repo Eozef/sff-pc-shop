@@ -12,7 +12,7 @@ const Header = () => (
       <Link className="option text-muted" to="/shop">
         SHOP
       </Link>
-      <Link className="option text-muted" to="/shop">
+      <Link className="option text-muted" to="/contact">
         CONTACT
       </Link>
       <Link className="option text-muted" to="/signin">
